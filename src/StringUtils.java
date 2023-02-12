@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class StringUtils {
@@ -26,6 +27,14 @@ public class StringUtils {
 
     static int eChecker(String s1, String s2) {
         return eCounter(s2) - eCounter(s1);
+    }
+
+    static List<String> transformedList(List<String> l1, Function<String, String> fn) {
+        List<String> resultList = new ArrayList<>();
+        for (String s: l1) {
+            resultList.add(fn.apply(s));
+        }
+        return resultList;
     }
 
 
